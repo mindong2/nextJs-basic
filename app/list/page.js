@@ -1,21 +1,23 @@
+import Link from "next/link";
 import { connectDB } from "../../util/database";
 
 export default async function List() {
-  let client = await connectDB;
-  const db = client.db("forum");
+    let client = await connectDB;
+    const db = client.db("forum");
+    const result = await db.collection("post").find().toArray();
 
-  const result = await db.collection("post").find().toArray();
-  console.log(result);
-  return (
-    <div className="list-bg">
-      {result.map((v, i) => {
-        return (
-          <div className="list-item" key={i}>
-            <h4>{v.title}</h4>
-            <p>{v.content}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
+    return (
+        <div className="list-bg">
+            {result.map((data, i) => {
+                return (
+                    <div className="list-item" key={i}>
+                        <Link href={`/detail/${data._id}`}>
+                            <h4>{data.title}</h4>
+                        </Link>
+                        <p>{data.content}</p>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }

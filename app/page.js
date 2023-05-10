@@ -1,3 +1,7 @@
 export default function Home() {
-  return <>안녕</>;
+    return (
+        <>
+            <h1>home</h1>
+        </>
+    );
 }
