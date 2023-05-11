@@ -12,8 +12,7 @@ body {
 
 body {
   color: #fff;
-  background: #333;
-  text-align: center;
+  background: #757575;
 }
 
 a {
@@ -21,9 +20,23 @@ a {
   text-decoration: none;
 }
 
+.navbar {
+  background: white;
+  padding: 20px;
+}
+.navbar a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+.logo {
+  font-weight: bold;
+}
+
 .list-bg {
   background: rgb(249, 250, 255);
   padding: 10px;
+  text-align: center;
 }
 .list-item {
   background: white;

@@ -1,4 +1,5 @@
 import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
 
 const Update = async (req, res) => {
   if (req.body.title === "" || req.body.content === "") {
@@ -6,12 +7,13 @@ const Update = async (req, res) => {
   }
   let client = await connectDB;
   let db = client.db("forum");
-    try {
-      await db.collection("user").findOneAndUpdate({_id : params.id}, {$set : {title, content}});
-      res.status(200).redirect(302, "/");
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    const updateData = { title: req.body.title, content: req.body.content };
+    await db.collection("post").updateOne({ _id: new ObjectId(req.body.id) }, { $set: updateData });
+    res.status(200).redirect(302, "/list");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default Update;
