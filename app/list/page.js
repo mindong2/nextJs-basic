@@ -15,6 +15,7 @@ export default async function List() {
                             <h4>{data.title}</h4>
                         </Link>
                         <p>{data.content}</p>
+                        <Link href={`/update/${data._id}`}>수정하기</Link>
                     </div>
                 );
             })}
