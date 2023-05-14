@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
-import { db_key } from "./dbkey";
-const url = `mongodb+srv://${db_key}@cluster0.jyaioxk.mongodb.net/?retryWrites=true&w=majority`;
+import { DB_KEY } from "@/key";
+const url = `mongodb+srv://${DB_KEY}@cluster0.jyaioxk.mongodb.net/?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true };
 let connectDB;
 
