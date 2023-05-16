@@ -13,7 +13,7 @@ const Comment = ({ id }) => {
                         .then((res) => {
                             if (res.status === 200) {
                                 window.alert("댓글작성 완료");
-                                window.location.reload();
+                                
                             }
                         })
                         .catch((err) => window.alert(`댓글작성 실패 사유: ${err}`));
