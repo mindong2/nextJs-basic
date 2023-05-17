@@ -28,7 +28,7 @@ export default function CommentList({ params, id }) {
         fetchData();
     }, [isDone]);
 
-    return (
+    return(
         <>
             <div>
                 <textarea name="comment" id="comment" ref={commentRef} onChange={(e) => setComment(e.currentTarget.value)}></textarea>
